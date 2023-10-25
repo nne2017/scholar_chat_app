@@ -1,8 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:scholar_chat/firebase_options.dart';
 import 'package:scholar_chat/pages/login_page.dart';
+import 'package:scholar_chat/pages/register_page.dart';
 
-void main() {
-  runApp(const ScholarChat());
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(ScholarChat());
 }
 
 class ScholarChat extends StatelessWidget {
@@ -10,11 +16,13 @@ class ScholarChat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      routes: {
+        'LoginPage': (context) => LoginPage(),
+        RegisterPage.id: (context) => RegisterPage(),
+      },
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: LoginPage(),
-      ),
+      initialRoute: 'LoginPage',
     );
   }
 }

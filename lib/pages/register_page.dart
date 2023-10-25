@@ -1,13 +1,12 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:scholar_chat/component/custom_button.dart';
 import 'package:scholar_chat/component/custom_textfield.dart';
 import 'package:scholar_chat/constants.dart';
-import 'package:scholar_chat/pages/register_page.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  RegisterPage({Key? key}) : super(key: key);
+
+  static String id = 'registerPage';
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class LoginPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: ListView(
           children: [
-            const SizedBox(
+            SizedBox(
               height: 100,
             ),
             Image.asset(
@@ -44,7 +43,7 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  'LOGIN',
+                  'REGISTER',
                   style: TextStyle(
                     fontSize: 24,
                     color: Colors.white,
@@ -63,22 +62,22 @@ class LoginPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            CustomButton(customText: 'Login'),
+            CustomButton(customText: 'Register'),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Don\'t have account?',
+                  'have an account?',
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
                 TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, RegisterPage.id);
+                      Navigator.pop(context);
                     },
                     child: Text(
-                      ' SignUp',
+                      'LogIn',
                       style: TextStyle(
                         color: Colors.blueGrey[300],
                       ),
